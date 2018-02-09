@@ -1,0 +1,36 @@
+<?php
+    
+    function hbd_menu() {
+        $items['hbd/bday'] = array(
+            'title' => 'Birthday',
+            'page callback' => 'hbd_bday',
+            'access callback' => TRUE,
+        );
+        
+        $items['admin/config/content/hbd'] = array(
+            'title' => 'Hbd',
+            'description' => 'Configurar las opciones para el cumpleaños',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('hbd_configuracion'),
+            'access arguments' => array('administer site configuration'),
+            'file' => 'hbd.admin.inc',
+        );
+        
+        return $items;
+    }
+    
+    function hbd_bday() {
+        $variables = array(
+            'date' => variable_get('hbd_date', date("Y-m-d")),
+        );
+        return theme('hbd_bday', $variables);    
+    }
+    
+    function hbd_theme() {
+        return array(
+            'hbd_bday' => array(
+                'template' => 'hbd-bday',
+            ),
+        );
+    }
+?>

@@ -1,0 +1,4 @@
+name = hbd
+description = "Recibe una felicitacion si es tu cumpleaños o averigua cuantos dias faltan para hacerte un año mas viejo."
+package = "Happy Birthday"
+core = 7.x
